@@ -17,8 +17,8 @@ jobs:
         run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
 
       - name: 'Build docker image'
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/TaskOS .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/taskos .
 
 
       - name: 'Pushing to docker Hub'
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/TaskOS
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/taskos
