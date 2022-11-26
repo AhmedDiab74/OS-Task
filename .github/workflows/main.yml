@@ -7,11 +7,15 @@ on:
 
 
 jobs:
-  biuld:
+  build:
     runs-on: ubuntun-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: "printing"
-        run: echo ahmed
+      - name: "Login DockerHub"
+        run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
+      - name: "Build docker image"
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/OsTask .
+      - name: "Pushing to docker hub"
+        run: docker push
